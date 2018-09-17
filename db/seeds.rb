@@ -17,6 +17,6 @@ menus = Menu.all
     name: Faker::Food.dish,
     description: Faker::Food.description,
     price: Faker::Commerce.price.to_f,
-    menu_id: menus.sample
+    menu_id: menus.sample.id
   )
 end
