@@ -5,3 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Menu.create(name:'Breakfeast')
+Menu.create(name:'Lunch')
+Menu.create(name:'Dinner')
+
+menus = Menu.all
+
+100.times do
+  Item.create(
+    name: Faker::Food.dish,
+    description: Faker::Food.description,
+    price: Faker::Commerce.price.to_f,
+    menu_id: menus.sample
+  )
+end
