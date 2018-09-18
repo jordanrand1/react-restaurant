@@ -1,23 +1,23 @@
 import React from 'react';
-import { Redirect, Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import axios from 'axios';
 
 class Home extends React.Component {
-  state = { items: [] }
+  state = { menus: [] }
   componentDidMount() {
-    axios.get('/api/items')
-      .then( res => this.setState({ items: res.data }) )
+    axios.get('/api/menus')
+      .then( res => this.setState({ menus: res.data }) )
   }
 
   render() {
-    const { items } = this.state;
+    const { menus } = this.state;
     return (
       <div>
         <h1>Home</h1>
         <ul>
-          { items.map( p =>
-              <li key={p.id}>
-                <Link to={`/items/${p.id}`}>{p.name}</Link>
+          { menus.map( m =>
+              <li key={m.id}>
+                <Link to={`/menus/${m.id}`}>{m.name}</Link>
               </li>
             )
           }
